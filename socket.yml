@@ -13,14 +13,14 @@ config:
 
 endpoints:
   search:
-    GET:
+    POST:
       script: invite
       description: Invite user to Slack
 
       parameters:
         email:
           type: string
-          description: Name of the country
+          description: User e-mail
           example: "john.snow@eyedea.io"
           required: True
 
