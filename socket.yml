@@ -1,42 +1,28 @@
 name: slack
-version: 0.1
+version: 0.0.1
 description: Integration with Slack
-
-author:
-  name: Eyedea AS
-  email: hello@eyedea.io
+runtime: nodejs_v8
 
 config:
-  - name: SLACK_API_KEY
+  SLACK_API_KEY:
     description: Slack API key
-    type: string
+    required: true
 
 endpoints:
-  search:
-    POST:
-      script: invite
-      description: Invite user to Slack
-
-      parameters:
-        email:
-          type: string
-          description: User e-mail
-          example: "john.snow@eyedea.io"
-          required: True
-
-      response:
-        mimetype: application/json
-        examples:
-          - exit_code: 200
-            example: >
-              { "success": "true" }
-          - exit_code: 400
-            example: >
-              { "success": "false", "error_message": "Wrong API key!" }
-
-dependencies:
-  scripts:
-    search:
-      runtime_name: python_library_v5.0
-      file: scripts/invite.py
-      description: Slack invite script
+  invite:
+    description: Invite user to Slack
+    parameters:
+      email:
+        description: User e-mail
+        example: john.snow@eyedea.io
+    response:
+      success:
+        exit_code: 204
+        description: Success
+      fail:
+        exit_code: 400
+        parameters:
+          message:
+            description: Error message
+        example: >
+            { "message": "Wrong API key!" }
