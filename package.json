@@ -63,6 +63,7 @@
     }
   },
   "babel": {
+    "sourceMaps": "inline",
     "presets": [
       [
         "@babel/preset-env",

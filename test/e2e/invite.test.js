@@ -1,10 +1,9 @@
-/* global describe it expect jest */
-import mockAxios from 'axios'
+/* global describe it expect */
 import {run} from '@syncano/test'
 
 describe('invite', function () {
-  it('successful invitation', async () => {
-    const args = {email: 'test@test.net', token: process.env.E2E_SLACK_API_KEY}
+  it('already invited', async () => {
+    const args = {email: 'm@kucharz.net', token: process.env.E2E_SLACK_API_KEY}
     const result = await run('invite', {args})
     expect(result).toHaveProperty('code', 400)
     expect(result.data).toHaveProperty('message', 'already_invited')
