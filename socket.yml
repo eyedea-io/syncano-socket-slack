@@ -1,9 +1,13 @@
 name: slack
+<<<<<<< HEAD
+=======
+version: 0.0.1
+>>>>>>> 5bfb563e2b0644c6292318c94fe5bd60ef1916bf
 description: Integration with Slack
 runtime: nodejs_v8
 
 config:
-  - name: SLACK_API_KEY
+  SLACK_API_KEY:
     description: Slack API key
     required: true
 
@@ -25,6 +29,7 @@ endpoints:
             description: Error message
         example: >
             { "message": "Wrong API key!" }
+<<<<<<< HEAD
   list:
     description: List Slack members
     inputs:
@@ -50,3 +55,5 @@ endpoints:
             description: Error message
         examples:
           - { "message": "Wrong API key!" }
+=======
+>>>>>>> 5bfb563e2b0644c6292318c94fe5bd60ef1916bf
