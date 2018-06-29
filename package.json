@@ -1,6 +1,6 @@
 {
   "name": "@eyedea-sockets/slack",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "public": true,
   "description": "Integration with Slack",
   "author": "Syncano",
@@ -21,6 +21,7 @@
     "build:src": "sh ./bin/compile",
     "build:env": "sh ./bin/compile-env",
     "test": "npm-run-all --parallel test:lint test:audit test:unit test:e2e",
+    "codecov": "codecov",
     "test:unit": "NODE_ENV=test jest unit/.*\\.test\\.js",
     "test:e2e": "NODE_ENV=test jest e2e/.*\\.test\\.js",
     "test:audit": "npm audit",

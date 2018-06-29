@@ -47,6 +47,7 @@ jobs:
           destination: results
 
       - run: npm run test
+      - run: npm run codecov
 
   deploy_staging:
     name: Deploy
