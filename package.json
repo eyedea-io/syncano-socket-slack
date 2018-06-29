@@ -1,6 +1,6 @@
 {
   "name": "@eyedea-sockets/slack",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "public": true,
   "description": "Integration with Slack",
   "author": "Syncano",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@syncano/core": "0.13.0-alpha.f6ea95d4",
+    "@syncano/validate": "0.13.0-alpha.f6ea95d4",
     "axios": "^0.18.0",
     "fb": "^2.0.0",
     "slack": "^11.0.0"
