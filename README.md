@@ -26,6 +26,10 @@ npx s deploy
 Use it:
 
 ```js
+import Syncano from @syncano/core
+
+const s = new Syncano(<instaneName>)
+
 // Invitation
 const params = {
   email: 'john@doe.com',
@@ -67,15 +71,15 @@ No input parameters.
 
     | Parameter | Type   | Description            | Example              |
     |-----------|--------|------------------------|----------------------|
-    | message   | string | Invitation failed      | Internal error.      |
+    | message   | string | Invitation failed      | `Internal error.`    |
 
 ### slack/invite
 
 #### Input:
 
-  |Parameter | Type | Required  | Example            |
-  |----------|------|-----------|--------------------|
-  |email     |string|       Yes |john.snow@eyedea.io |
+  |Parameter | Type | Required  | Example               |
+  |----------|------|-----------|-----------------------|
+  |email     |string|       Yes | `john.snow@eyedea.io` |
 
 #### Outputs:
 
@@ -84,9 +88,9 @@ No input parameters.
   - Code: 200
   - Mimetype: application/json
   
-    | Parameter | Type   | Description           | Example                 |
-    |-----------|--------|-----------------------|-------------------------|
-    | message   | string | Invitation successful | User invited sucessfuly!|
+    | Parameter | Type   | Description           | Example                    |
+    |-----------|--------|-----------------------|----------------------------|
+    | message   | string | Invitation successful | `User invited sucessfuly!` |
 
 
 - **fail** - **Opertaion failed**
@@ -94,6 +98,6 @@ No input parameters.
   - Code: 400
   - Mimetype: application/json
 
-    | Parameter | Type   | Description            | Example              |
-    |-----------|--------|------------------------|----------------------|
-    | message   | string | Invitation failed      | User already invited!|
+    | Parameter | Type   | Description            | Example                 |
+    |-----------|--------|------------------------|-------------------------|
+    | message   | string | Invitation failed      | `User already invited!` |
