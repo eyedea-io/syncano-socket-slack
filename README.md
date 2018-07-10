@@ -26,9 +26,74 @@ npx s deploy
 Use it:
 
 ```js
-// Invitation 
-const invitationStatus = await s.get('slack/invite', {email: 'john@doe.com', token: 'xoxp-17802080787-17802080963-23787252214-e634269418'})
+// Invitation
+const params = {
+  email: 'john@doe.com',
+  token: 'xoxp-17802080787-17802080963-23787252214-e634269418'
+}
+const invitationStatus = await s.get('slack/invite', params)
 
 // Listing users 
-const usersList = await s.get('slack/list', {token: 'xoxp-17802080787-17802080963-23787252214-e634269418'})
+const params = {
+  token: 'xoxp-17802080787-17802080963-23787252214-e634269418'
+}
+const usersList = await s.get('slack/list', params)
 ```
+
+## Endpoints
+
+### slack/list
+
+#### Input:
+
+No input parameters.
+
+#### Outputs:
+
+- #### success - **Opertaion Successful**
+
+  - Code: 200
+  - Mimetype: application/json
+  
+    | Parameter | Type   | Description           | Example                                     |
+    |-----------|--------|-----------------------|---------------------------------------------|
+    | users     | array  | List of users         | `[{"id": "1234", "username": "mkucharz"}]`  |
+
+
+- #### fail - **Opertaion failed**
+
+  - Code: 400
+  - Mimetype: application/json
+
+    | Parameter | Type   | Description            | Example              |
+    |-----------|--------|------------------------|----------------------|
+    | message   | string | Invitation failed      | Internal error.      |
+
+### slack/invite
+
+#### Input:
+
+  |Parameter | Type | Required  | Example            |
+  |----------|------|-----------|--------------------|
+  |email     |string|       Yes |john.snow@eyedea.io |
+
+#### Outputs:
+
+- #### success - **Opertaion Successful**
+
+  - Code: 200
+  - Mimetype: application/json
+  
+    | Parameter | Type   | Description           | Example                 |
+    |-----------|--------|-----------------------|-------------------------|
+    | message   | string | Invitation successful | User invited sucessfuly!|
+
+
+- #### fail - **Opertaion failed**
+
+  - Code: 400
+  - Mimetype: application/json
+
+    | Parameter | Type   | Description            | Example              |
+    |-----------|--------|------------------------|----------------------|
+    | message   | string | Invitation failed      | User already invited!|
