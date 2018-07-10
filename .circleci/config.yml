@@ -73,7 +73,7 @@ jobs:
       - restore_cache:
           key: v6-repo-{{ .Environment.CIRCLE_SHA1 }}
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-      - run: npm dist-tag add `npm view . name`@`npm view . version` latest
+      - run: npm dist-tag add `npm view . name`@`npm run version --silent` latest
 
 workflows:
   version: 2
