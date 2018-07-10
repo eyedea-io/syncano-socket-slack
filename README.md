@@ -50,7 +50,7 @@ No input parameters.
 
 #### Outputs:
 
-- #### success - **Opertaion Successful**
+- **success** - **Opertaion Successful**
 
   - Code: 200
   - Mimetype: application/json
@@ -60,7 +60,7 @@ No input parameters.
     | users     | array  | List of users         | `[{"id": "1234", "username": "mkucharz"}]`  |
 
 
-- #### fail - **Opertaion failed**
+- **fail** - **Opertaion failed**
 
   - Code: 400
   - Mimetype: application/json
@@ -79,7 +79,7 @@ No input parameters.
 
 #### Outputs:
 
-- #### success - **Opertaion Successful**
+- **success** - **Opertaion Successful**
 
   - Code: 200
   - Mimetype: application/json
@@ -89,7 +89,7 @@ No input parameters.
     | message   | string | Invitation successful | User invited sucessfuly!|
 
 
-- #### fail - **Opertaion failed**
+- **fail** - **Opertaion failed**
 
   - Code: 400
   - Mimetype: application/json
