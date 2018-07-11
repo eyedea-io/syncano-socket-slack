@@ -1,6 +1,6 @@
 {
   "name": "@eyedea-sockets/slack",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "public": true,
   "description": "Integration with Slack",
   "author": "Syncano",
