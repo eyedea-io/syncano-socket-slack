@@ -26,7 +26,7 @@ npx s deploy
 Use it:
 
 ```js
-import Syncano from @syncano/core
+import Syncano from @syncano/client
 
 const s = new Syncano(<instaneName>)
 
@@ -37,7 +37,7 @@ const params = {
 }
 const invitationStatus = await s.get('slack/invite', params)
 
-// Listing users 
+// Listing users
 const params = {
   token: 'xoxp-17802080787-17802080963-23787252214-e634269418'
 }
@@ -54,17 +54,17 @@ No input parameters.
 
 #### Outputs:
 
-**success** - **Opertaion Successful**
+**success** - **Operation Successful**
 
 - Code: 200
 - Mimetype: application/json
-  
+
 | Parameter | Type   | Description           | Example                                     |
 |-----------|--------|-----------------------|---------------------------------------------|
 | users     | array  | List of users         | `[{"id": "1234", "username": "mkucharz"}]`  |
 
 
-**fail** - **Opertaion failed**
+**fail** - **Operation failed**
 
 - Code: 400
 - Mimetype: application/json
@@ -83,17 +83,17 @@ No input parameters.
 
 #### Outputs:
 
-**success** - **Opertaion Successful**
+**success** - **Operation Successful**
 
 - Code: 200
 - Mimetype: application/json
 
-| Parameter | Type   | Description           | Example                    |
-|-----------|--------|-----------------------|----------------------------|
-| message   | string | Invitation successful | `User invited sucessfuly!` |
+| Parameter | Type   | Description           | Example                      |
+|-----------|--------|-----------------------|------------------------------|
+| message   | string | Invitation successful | `User invited successfully!` |
 
 
-**fail** - **Opertaion failed**
+**fail** - **Operation failed**
 
 - Code: 400
 - Mimetype: application/json
