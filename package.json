@@ -6,6 +6,11 @@
   "author": "Syncano",
   "repository": "https://github.com/eyedea-io/syncano-socket-slack.git",
   "license": "MIT",
+  "keywords": [
+    "syncano",
+    "socket",
+    "slack"
+  ],
   "peerDependencies": {
     "@syncano/cli": "0.13.0-alpha.f6ea95d4"
   },
