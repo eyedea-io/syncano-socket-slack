@@ -54,50 +54,50 @@ No input parameters.
 
 #### Outputs:
 
-- **success** - **Opertaion Successful**
+**success** - **Opertaion Successful**
 
-  - Code: 200
-  - Mimetype: application/json
+- Code: 200
+- Mimetype: application/json
   
-    | Parameter | Type   | Description           | Example                                     |
-    |-----------|--------|-----------------------|---------------------------------------------|
-    | users     | array  | List of users         | `[{"id": "1234", "username": "mkucharz"}]`  |
+| Parameter | Type   | Description           | Example                                     |
+|-----------|--------|-----------------------|---------------------------------------------|
+| users     | array  | List of users         | `[{"id": "1234", "username": "mkucharz"}]`  |
 
 
-- **fail** - **Opertaion failed**
+**fail** - **Opertaion failed**
 
-  - Code: 400
-  - Mimetype: application/json
+- Code: 400
+- Mimetype: application/json
 
-    | Parameter | Type   | Description            | Example              |
-    |-----------|--------|------------------------|----------------------|
-    | message   | string | Invitation failed      | `Internal error.`    |
+| Parameter | Type   | Description            | Example              |
+|-----------|--------|------------------------|----------------------|
+| message   | string | Invitation failed      | `Internal error.`    |
 
 ### slack/invite
 
 #### Input:
 
-  |Parameter | Type | Required  | Example               |
-  |----------|------|-----------|-----------------------|
-  |email     |string|       Yes | `john.snow@eyedea.io` |
+|Parameter | Type | Required  | Example               |
+|----------|------|-----------|-----------------------|
+|email     |string|       Yes | `john.snow@eyedea.io` |
 
 #### Outputs:
 
-- **success** - **Opertaion Successful**
+**success** - **Opertaion Successful**
 
-  - Code: 200
-  - Mimetype: application/json
-  
-    | Parameter | Type   | Description           | Example                    |
-    |-----------|--------|-----------------------|----------------------------|
-    | message   | string | Invitation successful | `User invited sucessfuly!` |
+- Code: 200
+- Mimetype: application/json
+
+| Parameter | Type   | Description           | Example                    |
+|-----------|--------|-----------------------|----------------------------|
+| message   | string | Invitation successful | `User invited sucessfuly!` |
 
 
-- **fail** - **Opertaion failed**
+**fail** - **Opertaion failed**
 
-  - Code: 400
-  - Mimetype: application/json
+- Code: 400
+- Mimetype: application/json
 
-    | Parameter | Type   | Description            | Example                 |
-    |-----------|--------|------------------------|-------------------------|
-    | message   | string | Invitation failed      | `User already invited!` |
+| Parameter | Type   | Description            | Example                 |
+|-----------|--------|------------------------|-------------------------|
+| message   | string | Invitation failed      | `User already invited!` |
