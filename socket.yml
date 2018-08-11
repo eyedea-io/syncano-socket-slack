@@ -2,11 +2,6 @@ name: slack
 description: Integration with Slack
 runtime: nodejs_v8
 
-config:
-  SLACK_API_KEY:
-    description: Slack API key
-    required: true
-
 endpoints:
   invite:
     description: Invite user to Slack
