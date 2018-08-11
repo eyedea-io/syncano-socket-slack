@@ -35,7 +35,7 @@ describe('list', function () {
     const message = 'Something went wrong!'
     mockSlack.users.list = jest.fn()
     mockSlack.users.list.mockImplementationOnce(() =>
-      Promise.reject(new Error({message})
+      Promise.reject(new Error(message)
     ))
 
     const result = await run('list', {args})
