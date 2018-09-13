@@ -1,9 +1,9 @@
 {
   "name": "@eyedea-sockets/slack",
-  "version": "0.0.14",
+  "version": "0.1.0",
   "public": true,
   "description": "Integration with Slack",
-  "author": "Syncano",
+  "author": "Eyedea <hello@eyedea.io> https://eyedea.io",
   "repository": "https://github.com/eyedea-io/syncano-socket-slack.git",
   "license": "MIT",
   "keywords": [
@@ -15,6 +15,7 @@
     "@syncano/cli": "0.13.0-alpha.f6ea95d4"
   },
   "dependencies": {
+    "@eyedea/syncano": "0.2.0",
     "@syncano/core": "0.13.0-alpha.f6ea95d4",
     "@syncano/validate": "0.13.0-alpha.f6ea95d4",
     "axios": "^0.18.0",
@@ -25,32 +26,43 @@
     "build": "npm run build:src && npm run build:env",
     "build:src": "sh ./bin/compile",
     "build:env": "sh ./bin/compile-env",
-    "test": "npm-run-all --parallel test:lint test:audit test:unit test:e2e",
+    "test": "npm-run-all --parallel test:lint test:audit test:unit",
     "codecov": "codecov",
+    "test:all": "NODE_ENV=test jest e2e/.*\\.test\\.js unit/.*\\.test\\.js",
     "test:unit": "NODE_ENV=test jest unit/.*\\.test\\.js",
     "test:e2e": "NODE_ENV=test jest e2e/.*\\.test\\.js",
-    "test:audit": "npm audit",
-    "test:lint": "standard --fix"
+    "test:audit": "npm audit || exit 0",
+    "test:lint": "tslint --fix -c tslint.json ./src/**/*.ts"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.49",
-    "@babel/core": "^7.0.0-beta.49",
-    "@babel/preset-env": "^7.0.0-beta.49",
-    "@syncano/test": "0.13.0-alpha.f6ea95d4",
-    "@syncano/test-tools": "0.13.0-alpha.f6ea95d4",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-typescript": "^7.0.0",
+    "@syncano/test": "0.13.0",
+    "@types/node": "^10.5.6",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
-    "codecov": "^3.0.2",
-    "jest": "^23.1.0",
+    "babel-plugin-istanbul": "^5.0.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "codecov": "^3.0.4",
+    "jest": "^23.4.2",
+    "json-schema-faker": "^0.5.0-rc15",
     "npm-run-all": "^4.1.1",
-    "sinon": "^5.1.0",
-    "standard": "^10.0.3"
+    "sinon": "^6.2.0",
+    "ts-jest": "^23.1.3",
+    "tslint": "5.11.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-react": "3.6.0",
+    "typescript": "^3.0.0",
+    "yaml": "^1.0.0-rc.8"
   },
   "jest": {
     "testEnvironment": "node",
     "globals": {
       "ts-jest": {
-        "useBabelrc": true
+        "useBabelrc": true,
+        "ignoreCoverageForAllDecorators": true
       }
     },
     "moduleFileExtensions": [
@@ -60,20 +72,18 @@
     "testMatch": [],
     "collectCoverage": true,
     "collectCoverageFrom": [
-      ".dist/**"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 80,
-        "functions": 80,
-        "lines": 80,
-        "statements": -10
-      }
-    }
+      "src/**/*.ts",
+      "!src/**/*.d.ts"
+    ]
   },
   "babel": {
     "sourceMaps": "inline",
+    "plugins": [
+      "transform-class-properties",
+      "istanbul"
+    ],
     "presets": [
+      "@babel/preset-typescript",
       [
         "@babel/preset-env",
         {

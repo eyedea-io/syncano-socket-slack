@@ -1,6 +1,6 @@
-import slack from 'slack'
 import Syncano from '@syncano/core'
 import Validator from '@syncano/validate'
+import {default as slack} from 'slack'
 
 export default async (ctx) => {
   const {response} = new Syncano(ctx)

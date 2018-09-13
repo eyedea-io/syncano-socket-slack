@@ -2,6 +2,35 @@ name: slack
 description: Integration with Slack
 runtime: nodejs_v8
 
+classes:
+  user:
+    - name: realName
+      type: string
+    - name: title
+      type: string
+    - name: phone
+      type: string
+    - name: email
+      type: string
+    - name: imageOriginal
+      type: string
+    - name: image72
+      type: string
+
+config:
+  CLIENT_SECRET:
+    description: Slack Client Secret
+    required: true
+  CLIENT_ID:
+    description: Slack Client ID
+    required: true
+  REDIRECT_URL:
+    description: Where to redirect after authentication
+    required: true
+  USER_SIGNIN_ENDPOINT:
+    description: Endpoint to handle user authentication
+    required: true
+
 endpoints:
   invite:
     description: Invite user to Slack
@@ -45,3 +74,13 @@ endpoints:
             description: Error message
         examples:
           - { "message": "Wrong API key!" }
+  verify:
+    description: Verify user Slack OAuth Code
+    inputs:
+      required:
+        - code
+      properties:
+        code:
+          description: Slack Authetication Code
+        state:
+          description: Optional State
