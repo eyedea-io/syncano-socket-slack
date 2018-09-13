@@ -1,6 +1,7 @@
 name: slack
 description: Integration with Slack
 runtime: nodejs_v8
+version: 0.0.15
 
 classes:
   user:
