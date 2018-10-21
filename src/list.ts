@@ -14,7 +14,8 @@ export default async (ctx) => {
 
   try {
     const data = await slack.users.list({token: ctx.args.token})
-    response.json({members: data.members})
+    const members = data.members.filter((member) => !member.is_bot)
+    response.json({members})
   } catch (err) {
     response.json({message: err.message}, 400)
   }

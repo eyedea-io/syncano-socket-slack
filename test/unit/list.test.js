@@ -31,6 +31,31 @@ describe('list', function () {
     expect(result.data).toHaveProperty('members', members)
   })
 
+  it('filter out bots', async () => {
+    const members = [{
+      id: 123,
+      name: 'Maciej',
+      is_bot: false,
+    },
+    {
+      id: 124,
+      name: 'Kasper',
+      is_bot: true,
+    }]
+
+    mockSlack.users.list = jest.fn()
+    mockSlack.users.list.mockImplementationOnce(() =>
+      Promise.resolve({
+        status: 200,
+        members
+      })
+    )
+
+    const result = await run('list', {args})
+    expect(result).toHaveProperty('code', 200)
+    expect(result.data).toHaveProperty('members', [members[0]])
+  })
+
   it('error', async () => {
     const message = 'Something went wrong!'
     mockSlack.users.list = jest.fn()
