@@ -20,7 +20,8 @@
     "@syncano/validate": "0.13.0-alpha.f6ea95d4",
     "axios": "^0.18.0",
     "fb": "^2.0.0",
-    "slack": "^11.0.0"
+    "slack": "^11.0.0",
+    "snyk": "^1.161.1"
   },
   "scripts": {
     "build": "npm run build:src && npm run build:env",
@@ -32,7 +33,9 @@
     "test:unit": "NODE_ENV=test jest unit/.*\\.test\\.js",
     "test:e2e": "NODE_ENV=test jest e2e/.*\\.test\\.js",
     "test:audit": "npm audit || exit 0",
-    "test:lint": "tslint --fix -c tslint.json ./src/**/*.ts"
+    "test:lint": "tslint --fix -c tslint.json ./src/**/*.ts",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -93,5 +96,6 @@
         }
       ]
     ]
-  }
+  },
+  "snyk": true
 }
