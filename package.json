@@ -18,7 +18,7 @@
     "@eyedea/syncano": "0.2.0",
     "@syncano/core": "0.13.0-alpha.f6ea95d4",
     "@syncano/validate": "0.13.0-alpha.f6ea95d4",
-    "axios": "^0.18.0",
+    "axios": "^1.6.4",
     "fb": "^2.0.0",
     "slack": "^11.0.0"
   },
